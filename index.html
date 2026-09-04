@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Mausam — Weather</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+            <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <h1>Mausam</h1>
+        <div class="header-actions">
+            <button class="icon-btn" aria-label="My location">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            </button>
+            <button class="icon-btn" aria-label="Search">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= LOCATION ================= -->
+    <section class="location-section">
+        <div class="location-name">
+            <span>📍</span> Amalner, Jalgaon <span class="arrow">⌄</span>
+        </div>
+        <div class="date" id="todayDate">28 August 2026, Thursday</div>
+        <div class="page-dots">
+            <span class="selected"></span><span></span><span></span>
+        </div>
+    </section>
+
+    <!-- ================= WEATHER WHEEL ================= -->
+    <section class="weather-wheel" id="weatherWheel">
+
+        <div class="weather-box soil">
+            <span class="weather-symbol">🌱</span>
+            <span class="weather-label">SOIL MOISTURE</span>
+            <span class="weather-value">68%</span>
+            <span class="blue-line"></span>
+        </div>
+
+        <div class="weather-box humidity">
+            <span class="weather-symbol">💧</span>
+            <span class="weather-label">HUMIDITY</span>
+            <span class="weather-value">64%</span>
+            <span class="blue-line"></span>
+        </div>
+
+        <div class="weather-box wind">
+            <span class="weather-symbol">〰️</span>
+            <span class="weather-label">WIND</span>
+            <span class="weather-value">18 km/h</span>
+            <span class="sub-value">NE</span>
+        </div>
+
+        <div class="weather-box sunrise">
+            <span class="weather-symbol">🌅</span>
+            <span class="weather-label">SUNRISE</span>
+            <span class="weather-value">6:00</span>
+            <span class="blue-line"></span>
+        </div>
+
+        <div class="weather-box sunset">
+            <span class="weather-symbol">🌇</span>
+            <span class="weather-label">SUNSET</span>
+            <span class="weather-value">6:58</span>
+            <span class="blue-line"></span>
+        </div>
+
+        <div class="weather-box uv">
+            <span class="weather-symbol">☀️</span>
+            <span class="weather-label">UV INDEX</span>
+            <span class="weather-value">5</span>
+            <span class="sub-value">Moderate</span>
+        </div>
+
+        <div class="weather-box rain">
+            <span class="weather-symbol">☂️</span>
+            <span class="weather-label">RAIN CHANCE</span>
+            <span class="weather-value">60%</span>
+            <span class="sub-value">Today</span>
+        </div>
+
+        <!-- ================= CENTER ================= -->
+        <div class="weather-center">
+            <div class="mountains"></div>
+            <div class="sun">☀️</div>
+            <div class="cloud">☁️</div>
+
+            <div class="main-temperature" id="mainTemp">31°</div>
+            <div class="condition" id="mainCondition">mostly cloudy</div>
+            <div class="center-divider"></div>
+
+            <div class="center-info" id="windInfo">〰️ 18 km/h winds</div>
+            <div class="center-info" id="hiLo">↑ 32°&nbsp;&nbsp;↓ 25°</div>
+            <div class="center-info" id="feelsLike">Feels like 36°</div>
+        </div>
+
+    </section>
+
+    <!-- ================= HOURLY + CLOCK ================= -->
+    <section class="hourly-wheel" id="hourlyWheel">
+
+        <div class="hour hour-12"><b>12</b><span>☁️</span><strong>33°</strong></div>
+        <div class="hour hour-1"><b>1</b><span>☀️</span><strong>32°</strong></div>
+        <div class="hour hour-2"><b>2</b><span>☁️</span><strong>31°</strong></div>
+        <div class="hour hour-3"><b>3</b><span>🌧️</span><strong>30°</strong></div>
+        <div class="hour hour-4"><b>4</b><span>🌧️</span><strong>29°</strong></div>
+        <div class="hour hour-5"><b>5</b><span>🌧️</span><strong>28°</strong></div>
+        <div class="hour hour-6"><b>6</b><span>🌧️</span><strong>27°</strong></div>
+        <div class="hour hour-7"><b>7</b><span>🌧️</span><strong>28°</strong></div>
+        <div class="hour hour-8"><b>8</b><span>☀️</span><strong>30°</strong></div>
+        <div class="hour hour-9"><b>9</b><span>🌧️</span><strong>31°</strong></div>
+        <div class="hour hour-10"><b>10</b><span>☀️</span><strong>32°</strong></div>
+        <div class="hour hour-11"><b>11</b><span>☀️</span><strong>33°</strong></div>
+
+        <!-- ================= CLOCK ================= -->
+        <div class="clock">
+            <div class="tick-marks"></div>
+            <div class="clock-number n12">12</div>
+            <div class="clock-number n1">1</div>
+            <div class="clock-number n2">2</div>
+            <div class="clock-number n3">3</div>
+            <div class="clock-number n4">4</div>
+            <div class="clock-number n5">5</div>
+            <div class="clock-number n6">6</div>
+            <div class="clock-number n7">7</div>
+            <div class="clock-number n8">8</div>
+            <div class="clock-number n9">9</div>
+            <div class="clock-number n10">10</div>
+            <div class="clock-number n11">11</div>
+            <div class="hour-hand" id="hourHand"></div>
+            <div class="minute-hand" id="minuteHand"></div>
+            <div class="clock-dot"></div>
+        </div>
+
+    </section>
+
+    <!-- ================= UMBRELLA ================= -->
+    <section class="umbrella-card">
+        <div class="umbrella-icon">☂️</div>
+        <div class="umbrella-content">
+            <h2>Take an umbrella!</h2>
+            <p>Rain will be in next 1 hour in your city.</p>
+        </div>
+    </section>
+
+    <!-- ================= FORECAST ================= -->
+    <section class="forecast-card" id="forecastCard">
+        <div class="day"><b>TUE</b><span>🌧️</span><strong>33°</strong><small>26°</small></div>
+        <div class="day"><b>WED</b><span>⛅</span><strong>34°</strong><small>27°</small></div>
+        <div class="day"><b>THU</b><span>☀️</span><strong>34°</strong><small>27°</small></div>
+        <div class="day"><b>FRI</b><span>🌧️</span><strong>33°</strong><small>26°</small></div>
+        <div class="day"><b>SAT</b><span>☁️</span><strong>33°</strong><small>26°</small></div>
+        <div class="day"><b>SUN</b><span>☀️</span><strong>34°</strong><small>27°</small></div>
+        <div class="day"><b>MON</b><span>☁️</span><strong>33°</strong><small>26°</small></div>
+    </section>
+
+    <!-- ================= BOTTOM NAV ================= -->
+    <nav class="bottom-nav">
+        <button class="bottom-item active" data-panel="kisan">
+            <span>🌱</span><small>Kisan</small>
+        </button>
+        <button class="bottom-item" data-panel="samudra">
+            <span>🐟</span><small>Samudra</small>
+        </button>
+        <button class="ai-button" id="aiBtn" aria-label="Ask Bhashini AI">
+            <div>🤖</div>
+            <small>Bhashini AI</small>
+        </button>
+        <button class="bottom-item" data-panel="safar">
+            <span>🚶</span><small>Safar</small>
+        </button>
+        <button class="bottom-item" data-panel="raksha">
+            <span>🛡️</span><small>Raksha</small>
+        </button>
+    </nav>
+
+    <!-- ================= FLOATING PANEL WIDGETS ================= -->
+
+    <!-- KISAN floating widget -->
+    <div class="float-widget" id="panel-kisan">
+        <button class="fw-item" data-label="Soil Moisture">
+            <span class="fw-pill fw-icon">Soil Moisture 🌱</span>
+            <span class="fw-dot">68%</span>
+        </button>
+        <button class="fw-item" data-label="Pollen Count">
+            <span class="fw-pill fw-icon">Pollen Count 🌾</span>
+            <span class="fw-dot">Low</span>
+        </button>
+        <button class="fw-item" data-label="Rain Chance">
+            <span class="fw-pill fw-icon">Rain Chance ☂️</span>
+            <span class="fw-dot">60%</span>
+        </button>
+        <button class="fw-item" data-label="Frost Alert">
+            <span class="fw-pill fw-icon">Frost Alert ❄️</span>
+            <span class="fw-dot">32 F</span>
+        </button>
+        <button class="fw-item" data-label="Meghdoot">
+            <span class="fw-pill">Meghdoot</span>
+            <span class="fw-dot fw-icon">☁️</span>
+        </button>
+        
+    </div>
+
+    <!-- SAMUDRA floating widget -->
+    <div class="float-widget" id="panel-samudra">
+        <button class="fw-item" data-label="Wave Height">
+            <span class="fw-pill">Wave Height</span>
+            <span class="fw-dot fw-icon">🌊</span>
+        </button>
+        <button class="fw-item" data-label="Tide Times">
+            <span class="fw-pill">Tide Times</span>
+            <span class="fw-dot fw-icon">🕒</span>
+        </button>
+        <button class="fw-item" data-label="Water Temperature">
+            <span class="fw-pill">Water Temperature</span>
+            <span class="fw-dot fw-icon">🌡️</span>
+        </button>
+        <button class="fw-item" data-label="Wind Speed">
+            <span class="fw-pill">Wind Speed</span>
+            <span class="fw-dot fw-icon">〰️</span>
+        </button>
+        <button class="fw-item" data-label="Samudra">
+            <span class="fw-pill">Samudra</span>
+            <span class="fw-dot fw-icon">🐟</span>
+        </button>
+        
+    </div>
+
+    <!-- SAFAR floating widget -->
+    <div class="float-widget" id="panel-safar">
+        <button class="fw-item" data-label="Visibility">
+            <span class="fw-pill">Visibility</span>
+            <span class="fw-dot fw-icon">🌫️</span>
+        </button>
+        <button class="fw-item" data-label="Traffic Update">
+            <span class="fw-pill">Traffic Update</span>
+            <span class="fw-dot fw-icon">🚦</span>
+        </button>
+        <button class="fw-item" data-label="Storm Chance">
+            <span class="fw-pill">Storm Chance</span>
+            <span class="fw-dot fw-icon">⛈️</span>
+        </button>
+        <button class="fw-item" data-label="Fog">
+            <span class="fw-pill">Fog</span>
+            <span class="fw-dot fw-icon">🌁</span>
+        </button>
+        
+    </div>
+
+    <!-- RAKSHA floating widget -->
+    <div class="float-widget" id="panel-raksha">
+        <button class="fw-item" data-label="Radar Map">
+            <span class="fw-pill">Radar Map</span>
+            <span class="fw-dot fw-icon">📡</span>
+        </button>
+        <button class="fw-item" data-label="Cyclone">
+            <span class="fw-pill">Cyclone</span>
+            <span class="fw-dot fw-icon">🌀</span>
+        </button>
+        <button class="fw-item fw-sos" data-label="Heatwave">
+            <span class="fw-pill">Heatwave</span>
+            <span class="fw-dot fw-icon">🔥</span>
+        </button>
+        
+    </div>
+
+</div>
+
+<!-- ================= SIDE MENU ================= -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+    <div class="side-header">
+        <h2>Menu</h2>
+        <button id="closeMenuBtn" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="side-location">
+        <div class="side-location-icon">📍</div>
+        <div>
+            <strong>Amalner, Jalgaon</strong>
+            <small>Current location</small>
+        </div>
+    </div>
+
+    <div class="menu-list">
+        <button class="menu-option active">
+            <span>🌦️</span>
+            <div><strong>Weather</strong><small>Live forecast &amp; conditions</small></div>
+        </button>
+        <button class="menu-option">
+            <span>🌱</span>
+            <div><strong>Kisan</strong><small>Farming advisories</small></div>
+        </button>
+        <button class="menu-option">
+            <span>🐟</span>
+            <div><strong>Samudra</strong><small>Ocean &amp; fishing alerts</small></div>
+        </button>
+        <button class="menu-option">
+            <span>🚶</span>
+            <div><strong>Safar</strong><small>Travel conditions</small></div>
+        </button>
+        <button class="menu-option">
+            <span>🛡️</span>
+            <div><strong>Raksha</strong><small>Disaster alerts</small></div>
+        </button>
+        <button class="menu-option">
+            <span>⚙️</span>
+            <div><strong>Settings</strong><small>Units, language, notifications</small></div>
+        </button>
+    </div>
+
+    <div class="menu-bottom">
+        <strong>Mausam</strong>
+        <p>Powered by Bhashini AI</p>
+    </div>
+</aside>
+
+<!-- ================= BHASHINI AI CHAT ================= -->
+<div class="ai-popup" id="aiPopup">
+    <div class="ai-box">
+        <button class="ai-close" id="aiCloseBtn" aria-label="Close">✕</button>
+        <div class="ai-logo">🤖</div>
+        <h2>Bhashini AI</h2>
+        <p>Ask me anything about today's weather — in your language.</p>
+
+        <div class="ai-chat" id="aiChat"></div>
+
+        <form id="aiForm" class="ai-form">
+            <input type="text" id="aiInput" placeholder="e.g. Should I carry an umbrella?" autocomplete="off">
+            <button type="submit" class="ask-button">Ask</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
